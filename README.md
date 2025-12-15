@@ -1,4 +1,5 @@
 # TMDb Coordinator Pattern Demo
+<img width="800" height="1536" alt="Gemini_Generated_Image_qk6umiqk6umiqk6u" src="https://github.com/user-attachments/assets/9372437e-0b92-4d77-b4c5-ca43e166dbca" />
 
 SwiftUI iOS app demonstrating the **Event-Driven Coordinator Pattern** with TMDb API integration.
 
