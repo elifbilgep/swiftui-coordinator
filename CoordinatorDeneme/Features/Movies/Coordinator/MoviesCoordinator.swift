@@ -47,7 +47,7 @@ final class MoviesCoordinator: ObservableObject {
         }
     }
 
-    struct ToastMessage: Identifiable {
+    struct ToastMessage: Identifiable, Equatable {
         let id = UUID()
         let message: String
         let type: ToastType

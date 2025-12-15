@@ -84,7 +84,7 @@ final class MoviesViewModel: ObservableObject {
     }
 
     private func performDelete(_ id: Int) {
-        // Perform delete operation
+        movies.removeAll { $0.id == id }
         coordinator?.handle(.showToast("Movie deleted", .info))
     }
 
