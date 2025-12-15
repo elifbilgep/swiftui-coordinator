@@ -12,22 +12,17 @@ struct RootView: View {
 
     var body: some View {
         TabView(selection: $coordinator.selectedTab) {
-            HomeNavigation(coordinator: coordinator.homeCoordinator)
-                .tabItem { Label("Home", systemImage: "house") }
-                .tag(MainTabCoordinator.Tab.home)
+            MoviesNavigation(coordinator: coordinator.moviesCoordinator)
+                .tabItem { Label("Movies", systemImage: "film") }
+                .tag(MainTabCoordinator.Tab.movies)
 
-            MyTripsNavigation(coordinator: coordinator.myTripsCoordinator)
-                .tabItem { Label("MyTrips", systemImage: "airplane") }
-                .tag(MainTabCoordinator.Tab.myTrips)
+            TVShowsNavigation(coordinator: coordinator.tvShowsCoordinator)
+                .tabItem { Label("TV Shows", systemImage: "tv") }
+                .tag(MainTabCoordinator.Tab.tvShows)
 
-            CheckInNavigation(coordinator: coordinator.checkInCoordinator)
-                .tabItem { Label("CheckIn", systemImage: "checkmark.circle") }
-                .tag(MainTabCoordinator.Tab.checkIn)
-        }
-        .onOpenURL { url in
-            if let deepLink = DeepLinkParser.parse(url) {
-                coordinator.handle(deepLink)
-            }
+            PeopleNavigation(coordinator: coordinator.peopleCoordinator)
+                .tabItem { Label("People", systemImage: "person.2") }
+                .tag(MainTabCoordinator.Tab.people)
         }
     }
 }

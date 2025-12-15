@@ -10,46 +10,26 @@ import Combine
 
 @MainActor
 final class MainTabCoordinator: ObservableObject {
-    
-    enum Tab: Hashable { case home, myTrips, checkIn, profile}
-    
-    @Published var selectedTab: Tab = .home
-    
-    let homeCoordinator: HomeCoordinator
-    let myTripsCoordinator: MyTripsCoordinator
-    let checkInCoordinator: CheckInCoordinator
-    let profileCoordinator: ProfileCoordinator
-    
+
+    enum Tab: Hashable { case movies, tvShows, people }
+
+    @Published var selectedTab: Tab = .movies
+
+    let moviesCoordinator: MoviesCoordinator
+    let tvShowsCoordinator: TVShowsCoordinator
+    let peopleCoordinator: PeopleCoordinator
+
     init() {
-        // parent referansı, tablar arası yönlendirme için işimize yarıyor
-        homeCoordinator = HomeCoordinator()
-        myTripsCoordinator = MyTripsCoordinator()
-        checkInCoordinator = CheckInCoordinator()
-        profileCoordinator = ProfileCoordinator()
-        
-        homeCoordinator.parent = self
-        myTripsCoordinator.parent = self
-        checkInCoordinator.parent = self
-        profileCoordinator.parent = self
-    }
-    
-    func select(_ tab: Tab) {
-        selectedTab = tab
-    }
-    
-    func openCheckIn(bookingId: String) {
-        selectedTab = .checkIn
-        checkInCoordinator.start(bookingId: bookingId)
+        moviesCoordinator = MoviesCoordinator()
+        tvShowsCoordinator = TVShowsCoordinator()
+        peopleCoordinator = PeopleCoordinator()
+
+        moviesCoordinator.parent = self
+        tvShowsCoordinator.parent = self
+        peopleCoordinator.parent = self
     }
 
-    func handle(_ deepLink: AppDeepLink) {
-        switch deepLink {
-        case .home:
-            select(.home)
-        case .myTrips:
-            select(.myTrips)
-        case .checkIn(let bookingId):
-            openCheckIn(bookingId: bookingId)
-        }
+    func select(_ tab: Tab) {
+        selectedTab = tab
     }
 }

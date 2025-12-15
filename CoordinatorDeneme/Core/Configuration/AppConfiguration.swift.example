@@ -1,0 +1,17 @@
+//
+//  AppConfiguration.swift.example
+//  CoordinatorDeneme
+//
+//  Created by Elif Bilge Parlak on 15.12.2025.
+//
+
+import Foundation
+
+enum AppConfiguration {
+    // TMDb API Key - https://www.themoviedb.org/settings/api
+    // INSTRUCTIONS:
+    // 1. Copy this file to AppConfiguration.swift (remove .example)
+    // 2. Get your API key from https://www.themoviedb.org/settings/api
+    // 3. Replace YOUR_API_KEY_HERE with your actual key
+    static let tmdbAPIKey = "YOUR_API_KEY_HERE"
+}
